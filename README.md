@@ -1,1 +1,1 @@
-# dotfiles-Manajaro
+# dotfiles2
