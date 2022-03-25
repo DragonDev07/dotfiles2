@@ -180,11 +180,11 @@ require('lualine').setup{
     }
 }
 
-require'lspconfig'.rust_analyzer.setup{}
+require('lspconfig').rust_analyzer.setup{}
 
 require('rust-tools').setup({})
 
---[[require'compe'.setup {
+require('compe').setup({
   enabled = true;
   autocomplete = true;
   debug = false;
@@ -216,10 +216,12 @@ require('rust-tools').setup({})
     ultisnips = true;
     luasnip = true;
   };
-} ]]--
-require('lspkind').init({
+})
+
+--[[ require('lspkind').init({
     with_text = true,
 
+    mode = 'symbol_text',
     preset = 'codicons',
 
     symbol_map = {
@@ -247,15 +249,16 @@ require('lspkind').init({
       Struct = "䷦",
       Event = "༕",
       Operator = "⨕",
-      TypeParameter = ""
+      TypeParameter = ''
     },
-})
+}) --]]
+
 EOF
 
-" inoremap <silent><expr> <C-Space> compe#complete()
-" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 nnoremap <silent><nowait> <C-x> :Clap files<CR>
 nnoremap <silent><nowait> <C-s> :Clap grep2<CR>
